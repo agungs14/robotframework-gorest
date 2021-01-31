@@ -1,0 +1,1898 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20210201 04:25:08.046" generator="Robot 3.1.2 (Python 2.7.15 on win32)">
+<suite source="D:\Robotframework-Gorest\robotframework-gorest\Gorest_api_testing.robot" id="s1" name="Gorest api testing">
+<test id="s1-t1" name="Post create users gorest">
+<kw name="generate email">
+<assign>
+<var>${email}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; generating random email</arg>
+</arguments>
+<msg timestamp="20210201 04:25:08.849" level="INFO">&gt;&gt;&gt; generating random email</msg>
+<status status="PASS" endtime="20210201 04:25:08.849" starttime="20210201 04:25:08.848"></status>
+</kw>
+<kw name="First Name" library="FakerLibrary">
+<assign>
+<var>${fake_name}</var>
+</assign>
+<msg timestamp="20210201 04:25:08.850" level="INFO">${fake_name} = William</msg>
+<status status="PASS" endtime="20210201 04:25:08.850" starttime="20210201 04:25:08.849"></status>
+</kw>
+<kw name="Convert To Lowercase" library="String">
+<doc>Converts string to lowercase.</doc>
+<arguments>
+<arg>${fake_name}</arg>
+</arguments>
+<assign>
+<var>${fake_name_lower}</var>
+</assign>
+<msg timestamp="20210201 04:25:08.850" level="INFO">${fake_name_lower} = william</msg>
+<status status="PASS" endtime="20210201 04:25:08.850" starttime="20210201 04:25:08.850"></status>
+</kw>
+<kw name="Numerify" library="FakerLibrary">
+<doc>Replaces all placeholders in given text with randomized values,
+replacing: all hash sign ('#') occurrences with a random digit
+(from 0 to 9); all percentage sign ('%') occurrences with a
+random non-zero digit (from 1 to 9); all exclamation mark ('!')
+occurrences with a random digit (from 0 to 9) or an empty string;
+and all at symbol ('@') occurrences with a random non-zero digit
+(from 1 to 9) or an empty string.</doc>
+<arguments>
+<arg>text=###</arg>
+</arguments>
+<assign>
+<var>${randomNumber}</var>
+</assign>
+<msg timestamp="20210201 04:25:08.850" level="INFO">${randomNumber} = 261</msg>
+<status status="PASS" endtime="20210201 04:25:08.851" starttime="20210201 04:25:08.850"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>apitest+</arg>
+</arguments>
+<assign>
+<var>${email_prefix}</var>
+</assign>
+<msg timestamp="20210201 04:25:08.851" level="INFO">${email_prefix} = apitest+</msg>
+<status status="PASS" endtime="20210201 04:25:08.851" starttime="20210201 04:25:08.851"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@forest.id</arg>
+</arguments>
+<assign>
+<var>${email_suffix}</var>
+</assign>
+<msg timestamp="20210201 04:25:08.851" level="INFO">${email_suffix} = @forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:08.851" starttime="20210201 04:25:08.851"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${email_prefix}${fake_name_lower}${randomNumber}${email_suffix}</arg>
+</arguments>
+<assign>
+<var>${email}</var>
+</assign>
+<msg timestamp="20210201 04:25:08.852" level="INFO">${email} = apitest+william261@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:08.852" starttime="20210201 04:25:08.851"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:08.852" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20210201 04:25:08.853" starttime="20210201 04:25:08.852"></status>
+</kw>
+<msg timestamp="20210201 04:25:08.853" level="INFO">${email} = apitest+william261@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:08.853" starttime="20210201 04:25:08.848"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; email random: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:08.854" starttime="20210201 04:25:08.853"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; Hit create users gorest with email: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:08.855" starttime="20210201 04:25:08.854"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{ \ \ "name": "Bianca Haliza", \ \ "gender": "Male", \ \ "email": "${email}", \ \ "status": "Active" }</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210201 04:25:08.857" level="INFO">${body} = {   "name": "Bianca Haliza",   "gender": "Male",   "email": "apitest+william261@forest.id",   "status": "Active" }</msg>
+<status status="PASS" endtime="20210201 04:25:08.857" starttime="20210201 04:25:08.856"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; request body: ${body}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:08.858" starttime="20210201 04:25:08.857"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:08.859" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'}</msg>
+<status status="PASS" endtime="20210201 04:25:08.859" starttime="20210201 04:25:08.858"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>session</arg>
+<arg>${URL_GOREST}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:08.859" level="INFO">Creating Session using : alias=session, url=https://gorest.co.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:08.859" starttime="20210201 04:25:08.859"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/public-api/users</arg>
+<arg>data=${body}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20210201 04:25:08.860" level="INFO">POST Request using : uri=/public-api/users, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'} 
+data={   "name": "Bianca Haliza",   "gender": "Male",   "email": "apitest+william261@forest.id",   "status": "Active" } 
+json=None</msg>
+<msg timestamp="20210201 04:25:09.887" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:09.893" level="INFO">${result} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:09.893" starttime="20210201 04:25:08.860"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:09.923" starttime="20210201 04:25:09.895"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:09.971" starttime="20210201 04:25:09.932"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.003" starttime="20210201 04:25:09.974"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result.content}</arg>
+</arguments>
+<assign>
+<var>${responseJson}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.005" level="INFO">${responseJson} = {"code":201,"meta":null,"data":{"id":2155,"name":"Bianca Haliza","email":"apitest+william261@forest.id","gender":"Male","status":"Active","created_at":"2021-02-01T02:55:11.001+05:30","updated_at":"202...</msg>
+<status status="PASS" endtime="20210201 04:25:10.005" starttime="20210201 04:25:10.004"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/data/id</arg>
+</arguments>
+<assign>
+<var>${responseid}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.007" level="INFO">${responseid} = 2155</msg>
+<status status="PASS" endtime="20210201 04:25:10.007" starttime="20210201 04:25:10.006"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; ID users: ${responseid}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.010" starttime="20210201 04:25:10.008"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${responseid}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:10.011" level="INFO">${responseid} = 2155</msg>
+<status status="PASS" endtime="20210201 04:25:10.012" starttime="20210201 04:25:10.011"></status>
+</kw>
+<tags>
+<tag>1</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:10.013" critical="yes" starttime="20210201 04:25:08.846"></status>
+</test>
+<test id="s1-t2" name="Get user detail gorest by id">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;start to hit gorest user details id: ${responseid}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.038" starttime="20210201 04:25:10.030"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>${URL_GOREST}/public-api/users/${responseid}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:10.040" level="INFO">Creating Session using : alias=myssion, url=https://gorest.co.in//public-api/users/2155, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:10.041" starttime="20210201 04:25:10.039"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.043" level="INFO">${headers} = {u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd', u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20210201 04:25:10.043" starttime="20210201 04:25:10.042"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>/</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.045" level="INFO">GET Request using : uri=/, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210201 04:25:10.311" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:10.335" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:10.335" starttime="20210201 04:25:10.044"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;${response.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.340" starttime="20210201 04:25:10.337"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;${response.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.361" starttime="20210201 04:25:10.342"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;${response.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.384" starttime="20210201 04:25:10.362"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;Success get user details id: ${responseid}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.386" starttime="20210201 04:25:10.384"></status>
+</kw>
+<tags>
+<tag>2</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:10.386" critical="yes" starttime="20210201 04:25:10.028"></status>
+</test>
+<test id="s1-t3" name="Update user detail gorest">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>Wirtz Julian</arg>
+</arguments>
+<assign>
+<var>${newname}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.391" level="INFO">${newname} = Wirtz Julian</msg>
+<status status="PASS" endtime="20210201 04:25:10.391" starttime="20210201 04:25:10.391"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>Inactive</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.392" level="INFO">${status} = Inactive</msg>
+<status status="PASS" endtime="20210201 04:25:10.392" starttime="20210201 04:25:10.391"></status>
+</kw>
+<kw name="generate email">
+<assign>
+<var>${newemail}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; generating random email</arg>
+</arguments>
+<msg timestamp="20210201 04:25:10.393" level="INFO">&gt;&gt;&gt; generating random email</msg>
+<status status="PASS" endtime="20210201 04:25:10.393" starttime="20210201 04:25:10.393"></status>
+</kw>
+<kw name="First Name" library="FakerLibrary">
+<assign>
+<var>${fake_name}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.394" level="INFO">${fake_name} = Latoya</msg>
+<status status="PASS" endtime="20210201 04:25:10.394" starttime="20210201 04:25:10.393"></status>
+</kw>
+<kw name="Convert To Lowercase" library="String">
+<doc>Converts string to lowercase.</doc>
+<arguments>
+<arg>${fake_name}</arg>
+</arguments>
+<assign>
+<var>${fake_name_lower}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.394" level="INFO">${fake_name_lower} = latoya</msg>
+<status status="PASS" endtime="20210201 04:25:10.394" starttime="20210201 04:25:10.394"></status>
+</kw>
+<kw name="Numerify" library="FakerLibrary">
+<doc>Replaces all placeholders in given text with randomized values,
+replacing: all hash sign ('#') occurrences with a random digit
+(from 0 to 9); all percentage sign ('%') occurrences with a
+random non-zero digit (from 1 to 9); all exclamation mark ('!')
+occurrences with a random digit (from 0 to 9) or an empty string;
+and all at symbol ('@') occurrences with a random non-zero digit
+(from 1 to 9) or an empty string.</doc>
+<arguments>
+<arg>text=###</arg>
+</arguments>
+<assign>
+<var>${randomNumber}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.395" level="INFO">${randomNumber} = 273</msg>
+<status status="PASS" endtime="20210201 04:25:10.395" starttime="20210201 04:25:10.394"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>apitest+</arg>
+</arguments>
+<assign>
+<var>${email_prefix}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.395" level="INFO">${email_prefix} = apitest+</msg>
+<status status="PASS" endtime="20210201 04:25:10.395" starttime="20210201 04:25:10.395"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@forest.id</arg>
+</arguments>
+<assign>
+<var>${email_suffix}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.396" level="INFO">${email_suffix} = @forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:10.396" starttime="20210201 04:25:10.395"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${email_prefix}${fake_name_lower}${randomNumber}${email_suffix}</arg>
+</arguments>
+<assign>
+<var>${email}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.396" level="INFO">${email} = apitest+latoya273@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:10.396" starttime="20210201 04:25:10.396"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:10.397" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20210201 04:25:10.397" starttime="20210201 04:25:10.397"></status>
+</kw>
+<msg timestamp="20210201 04:25:10.397" level="INFO">${newemail} = apitest+latoya273@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:10.397" starttime="20210201 04:25:10.393"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; email new random: ${newemail}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.402" starttime="20210201 04:25:10.398"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; Hit create users gorest with email: ${newemail}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.406" starttime="20210201 04:25:10.403"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{ \ \ "name": "${newname}", \ \ "gender": "Male", \ \ "email": "${newemail}", \ \ "status": "${status}" }</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.407" level="INFO">${body} = {   "name": "Wirtz Julian",   "gender": "Male",   "email": "apitest+latoya273@forest.id",   "status": "Inactive" }</msg>
+<status status="PASS" endtime="20210201 04:25:10.407" starttime="20210201 04:25:10.407"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; request body: ${body}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.409" starttime="20210201 04:25:10.408"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.410" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'}</msg>
+<status status="PASS" endtime="20210201 04:25:10.410" starttime="20210201 04:25:10.409"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>session</arg>
+<arg>${URL_GOREST}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:10.410" level="INFO">Creating Session using : alias=session, url=https://gorest.co.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:10.411" starttime="20210201 04:25:10.410"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/public-api/users/${responseid}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.413" level="INFO">PUT Request using : uri=/public-api/users/2155, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'} 
+data={   "name": "Wirtz Julian",   "gender": "Male",   "email": "apitest+latoya273@forest.id",   "status": "Inactive" } 
+json=None</msg>
+<msg timestamp="20210201 04:25:10.711" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:10.732" level="INFO">${result} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:10.732" starttime="20210201 04:25:10.412"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.743" starttime="20210201 04:25:10.738"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.771" starttime="20210201 04:25:10.744"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.774" starttime="20210201 04:25:10.772"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result.content}</arg>
+</arguments>
+<assign>
+<var>${responseJson}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.775" level="INFO">${responseJson} = {"code":200,"meta":null,"data":{"id":2155,"email":"apitest+latoya273@forest.id","name":"Wirtz Julian","gender":"Male","status":"Inactive","created_at":"2021-02-01T02:55:11.001+05:30","updated_at":"202...</msg>
+<status status="PASS" endtime="20210201 04:25:10.775" starttime="20210201 04:25:10.774"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/data/id</arg>
+</arguments>
+<assign>
+<var>${responseid}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.776" level="INFO">${responseid} = 2155</msg>
+<status status="PASS" endtime="20210201 04:25:10.776" starttime="20210201 04:25:10.776"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/data/name</arg>
+</arguments>
+<assign>
+<var>${responsename}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.777" level="INFO">${responsename} = "Wirtz Julian"</msg>
+<status status="PASS" endtime="20210201 04:25:10.777" starttime="20210201 04:25:10.777"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>'${responsename}'.replace('"','')</arg>
+</arguments>
+<assign>
+<var>${responsename}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.779" level="INFO">${responsename} = Wirtz Julian</msg>
+<status status="PASS" endtime="20210201 04:25:10.779" starttime="20210201 04:25:10.778"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/data/email</arg>
+</arguments>
+<assign>
+<var>${responseemail}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.788" level="INFO">${responseemail} = "apitest+latoya273@forest.id"</msg>
+<status status="PASS" endtime="20210201 04:25:10.788" starttime="20210201 04:25:10.787"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>'${responseemail}'.replace('"','')</arg>
+</arguments>
+<assign>
+<var>${responseemail}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.789" level="INFO">${responseemail} = apitest+latoya273@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:10.789" starttime="20210201 04:25:10.789"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/data/status</arg>
+</arguments>
+<assign>
+<var>${responsestatus}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.790" level="INFO">${responsestatus} = "Inactive"</msg>
+<status status="PASS" endtime="20210201 04:25:10.790" starttime="20210201 04:25:10.790"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>'${responsestatus}'.replace('"','')</arg>
+</arguments>
+<assign>
+<var>${responsestatus}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.791" level="INFO">${responsestatus} = Inactive</msg>
+<status status="PASS" endtime="20210201 04:25:10.791" starttime="20210201 04:25:10.791"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; new update= name: ${responsename}, email: ${responseemail}</arg>
+<arg>status: ${responsestatus}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.793" starttime="20210201 04:25:10.791"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${newname}</arg>
+<arg>${responsename}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:10.793" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:10.793" starttime="20210201 04:25:10.793"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${newemail}</arg>
+<arg>${responseemail}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:10.794" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:10.794" starttime="20210201 04:25:10.794"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${responsestatus}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:10.795" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:10.796" starttime="20210201 04:25:10.795"></status>
+</kw>
+<tags>
+<tag>3</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:10.805" critical="yes" starttime="20210201 04:25:10.390"></status>
+</test>
+<test id="s1-t4" name="Delete user gorest">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;start to delete gorest user details id: ${responseid}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:10.810" starttime="20210201 04:25:10.809"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>${URL_GOREST}/public-api/users/${responseid}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:10.811" level="INFO">Creating Session using : alias=myssion, url=https://gorest.co.in//public-api/users/2155, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:10.812" starttime="20210201 04:25:10.811"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.813" level="INFO">${headers} = {u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd', u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20210201 04:25:10.813" starttime="20210201 04:25:10.813"></status>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<doc>Send a DELETE request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>/</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210201 04:25:10.814" level="INFO">DELETE Request using : uri=/, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210201 04:25:11.155" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:11.180" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:11.180" starttime="20210201 04:25:10.814"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;${response.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.201" starttime="20210201 04:25:11.186"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;${response.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.204" starttime="20210201 04:25:11.202"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;${response.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.227" starttime="20210201 04:25:11.205"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;Success delete user id: ${responseid}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.238" starttime="20210201 04:25:11.228"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${responseJson}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.239" level="INFO">${responseJson} = {"code":204,"meta":null,"data":null}</msg>
+<status status="PASS" endtime="20210201 04:25:11.239" starttime="20210201 04:25:11.239"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/data</arg>
+</arguments>
+<assign>
+<var>${response_id_deleted}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.242" level="INFO">${response_id_deleted} = null</msg>
+<status status="PASS" endtime="20210201 04:25:11.242" starttime="20210201 04:25:11.241"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;data id ${responseid}=${response_id_deleted}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.243" starttime="20210201 04:25:11.242"></status>
+</kw>
+<tags>
+<tag>4</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:11.243" critical="yes" starttime="20210201 04:25:10.809"></status>
+</test>
+<test id="s1-t5" name="Create User failed - Request header no Authorization">
+<kw name="generate email">
+<assign>
+<var>${email}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; generating random email</arg>
+</arguments>
+<msg timestamp="20210201 04:25:11.253" level="INFO">&gt;&gt;&gt; generating random email</msg>
+<status status="PASS" endtime="20210201 04:25:11.253" starttime="20210201 04:25:11.253"></status>
+</kw>
+<kw name="First Name" library="FakerLibrary">
+<assign>
+<var>${fake_name}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.254" level="INFO">${fake_name} = Monique</msg>
+<status status="PASS" endtime="20210201 04:25:11.254" starttime="20210201 04:25:11.254"></status>
+</kw>
+<kw name="Convert To Lowercase" library="String">
+<doc>Converts string to lowercase.</doc>
+<arguments>
+<arg>${fake_name}</arg>
+</arguments>
+<assign>
+<var>${fake_name_lower}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.255" level="INFO">${fake_name_lower} = monique</msg>
+<status status="PASS" endtime="20210201 04:25:11.255" starttime="20210201 04:25:11.254"></status>
+</kw>
+<kw name="Numerify" library="FakerLibrary">
+<doc>Replaces all placeholders in given text with randomized values,
+replacing: all hash sign ('#') occurrences with a random digit
+(from 0 to 9); all percentage sign ('%') occurrences with a
+random non-zero digit (from 1 to 9); all exclamation mark ('!')
+occurrences with a random digit (from 0 to 9) or an empty string;
+and all at symbol ('@') occurrences with a random non-zero digit
+(from 1 to 9) or an empty string.</doc>
+<arguments>
+<arg>text=###</arg>
+</arguments>
+<assign>
+<var>${randomNumber}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.255" level="INFO">${randomNumber} = 856</msg>
+<status status="PASS" endtime="20210201 04:25:11.255" starttime="20210201 04:25:11.255"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>apitest+</arg>
+</arguments>
+<assign>
+<var>${email_prefix}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.255" level="INFO">${email_prefix} = apitest+</msg>
+<status status="PASS" endtime="20210201 04:25:11.255" starttime="20210201 04:25:11.255"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@forest.id</arg>
+</arguments>
+<assign>
+<var>${email_suffix}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.255" level="INFO">${email_suffix} = @forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:11.256" starttime="20210201 04:25:11.255"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${email_prefix}${fake_name_lower}${randomNumber}${email_suffix}</arg>
+</arguments>
+<assign>
+<var>${email}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.256" level="INFO">${email} = apitest+monique856@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:11.256" starttime="20210201 04:25:11.256"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:11.256" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20210201 04:25:11.256" starttime="20210201 04:25:11.256"></status>
+</kw>
+<msg timestamp="20210201 04:25:11.256" level="INFO">${email} = apitest+monique856@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:11.256" starttime="20210201 04:25:11.253"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; email random: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.258" starttime="20210201 04:25:11.257"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; Hit create users gorest with email: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.259" starttime="20210201 04:25:11.258"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{ \ \ "name": "Bianca Haliza", \ \ "gender": "Male", \ \ "email": "${email}", \ \ "status": "Active" }</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.260" level="INFO">${body} = {   "name": "Bianca Haliza",   "gender": "Male",   "email": "apitest+monique856@forest.id",   "status": "Active" }</msg>
+<status status="PASS" endtime="20210201 04:25:11.260" starttime="20210201 04:25:11.260"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; request body: ${body}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.262" starttime="20210201 04:25:11.260"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.263" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20210201 04:25:11.263" starttime="20210201 04:25:11.262"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>session</arg>
+<arg>${URL_GOREST}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:11.270" level="INFO">Creating Session using : alias=session, url=https://gorest.co.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:11.270" starttime="20210201 04:25:11.270"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/public-api/users</arg>
+<arg>data=${body}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.271" level="INFO">POST Request using : uri=/public-api/users, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Connection': 'keep-alive', u'Content-Type': u'application/json', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0'} 
+data={   "name": "Bianca Haliza",   "gender": "Male",   "email": "apitest+monique856@forest.id",   "status": "Active" } 
+json=None</msg>
+<msg timestamp="20210201 04:25:11.502" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:11.526" level="INFO">${result} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:11.526" starttime="20210201 04:25:11.271"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.543" starttime="20210201 04:25:11.527"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.558" starttime="20210201 04:25:11.545"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.560" starttime="20210201 04:25:11.558"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result.content}</arg>
+</arguments>
+<assign>
+<var>${responseJson}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.561" level="INFO">${responseJson} = {"code":401,"meta":null,"data":{"message":"Authentication failed"}}</msg>
+<status status="PASS" endtime="20210201 04:25:11.561" starttime="20210201 04:25:11.560"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/code</arg>
+</arguments>
+<assign>
+<var>${responsecode}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.562" level="INFO">${responsecode} = 401</msg>
+<status status="PASS" endtime="20210201 04:25:11.562" starttime="20210201 04:25:11.561"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${responsecode}</arg>
+<arg>401</arg>
+</arguments>
+<msg timestamp="20210201 04:25:11.563" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:11.563" starttime="20210201 04:25:11.563"></status>
+</kw>
+<tags>
+<tag>5</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:11.564" critical="yes" starttime="20210201 04:25:11.251"></status>
+</test>
+<test id="s1-t6" name="Create User failed - Blank request body">
+<kw name="generate email">
+<assign>
+<var>${email}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; generating random email</arg>
+</arguments>
+<msg timestamp="20210201 04:25:11.572" level="INFO">&gt;&gt;&gt; generating random email</msg>
+<status status="PASS" endtime="20210201 04:25:11.572" starttime="20210201 04:25:11.572"></status>
+</kw>
+<kw name="First Name" library="FakerLibrary">
+<assign>
+<var>${fake_name}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.573" level="INFO">${fake_name} = Sarah</msg>
+<status status="PASS" endtime="20210201 04:25:11.573" starttime="20210201 04:25:11.572"></status>
+</kw>
+<kw name="Convert To Lowercase" library="String">
+<doc>Converts string to lowercase.</doc>
+<arguments>
+<arg>${fake_name}</arg>
+</arguments>
+<assign>
+<var>${fake_name_lower}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.574" level="INFO">${fake_name_lower} = sarah</msg>
+<status status="PASS" endtime="20210201 04:25:11.574" starttime="20210201 04:25:11.573"></status>
+</kw>
+<kw name="Numerify" library="FakerLibrary">
+<doc>Replaces all placeholders in given text with randomized values,
+replacing: all hash sign ('#') occurrences with a random digit
+(from 0 to 9); all percentage sign ('%') occurrences with a
+random non-zero digit (from 1 to 9); all exclamation mark ('!')
+occurrences with a random digit (from 0 to 9) or an empty string;
+and all at symbol ('@') occurrences with a random non-zero digit
+(from 1 to 9) or an empty string.</doc>
+<arguments>
+<arg>text=###</arg>
+</arguments>
+<assign>
+<var>${randomNumber}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.574" level="INFO">${randomNumber} = 655</msg>
+<status status="PASS" endtime="20210201 04:25:11.574" starttime="20210201 04:25:11.574"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>apitest+</arg>
+</arguments>
+<assign>
+<var>${email_prefix}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.574" level="INFO">${email_prefix} = apitest+</msg>
+<status status="PASS" endtime="20210201 04:25:11.574" starttime="20210201 04:25:11.574"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@forest.id</arg>
+</arguments>
+<assign>
+<var>${email_suffix}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.575" level="INFO">${email_suffix} = @forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:11.575" starttime="20210201 04:25:11.574"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${email_prefix}${fake_name_lower}${randomNumber}${email_suffix}</arg>
+</arguments>
+<assign>
+<var>${email}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.575" level="INFO">${email} = apitest+sarah655@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:11.575" starttime="20210201 04:25:11.575"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:11.575" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20210201 04:25:11.575" starttime="20210201 04:25:11.575"></status>
+</kw>
+<msg timestamp="20210201 04:25:11.575" level="INFO">${email} = apitest+sarah655@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:11.575" starttime="20210201 04:25:11.572"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; email random: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.577" starttime="20210201 04:25:11.576"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; Hit create users gorest with email: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.585" starttime="20210201 04:25:11.578"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.587" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'}</msg>
+<status status="PASS" endtime="20210201 04:25:11.587" starttime="20210201 04:25:11.586"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>session</arg>
+<arg>${URL_GOREST}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:11.588" level="INFO">Creating Session using : alias=session, url=https://gorest.co.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:11.589" starttime="20210201 04:25:11.588"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/public-api/users</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.589" level="INFO">POST Request using : uri=/public-api/users, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210201 04:25:11.841" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:11.862" level="INFO">${result} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:11.862" starttime="20210201 04:25:11.589"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.891" starttime="20210201 04:25:11.889"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.935" starttime="20210201 04:25:11.893"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.938" starttime="20210201 04:25:11.936"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result.content}</arg>
+</arguments>
+<assign>
+<var>${responseJson}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.941" level="INFO">${responseJson} = {"code":422,"meta":null,"data":[{"field":"email","message":"can't be blank"},{"field":"name","message":"can't be blank"},{"field":"gender","message":"can't be blank"},{"field":"status","message":"can'...</msg>
+<status status="PASS" endtime="20210201 04:25:11.941" starttime="20210201 04:25:11.941"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/code</arg>
+</arguments>
+<assign>
+<var>${responsecode}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.943" level="INFO">${responsecode} = 422</msg>
+<status status="PASS" endtime="20210201 04:25:11.943" starttime="20210201 04:25:11.942"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${responsecode}</arg>
+<arg>422</arg>
+</arguments>
+<msg timestamp="20210201 04:25:11.944" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:11.944" starttime="20210201 04:25:11.943"></status>
+</kw>
+<tags>
+<tag>6</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:11.944" critical="yes" starttime="20210201 04:25:11.571"></status>
+</test>
+<test id="s1-t7" name="Create User failed - email has already been taken">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>kaihavertz@shopoyi.id</arg>
+</arguments>
+<assign>
+<var>${emailalreadytaken}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.957" level="INFO">${emailalreadytaken} = kaihavertz@shopoyi.id</msg>
+<status status="PASS" endtime="20210201 04:25:11.957" starttime="20210201 04:25:11.957"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; email random: ${emailalreadytaken}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.959" starttime="20210201 04:25:11.958"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; Hit create users gorest with email: ${emailalreadytaken}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.960" starttime="20210201 04:25:11.959"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{ \ \ "name": "test nama", \ \ "gender": "Male", \ \ "email": "${emailalreadytaken}", \ \ "status": "Active" }</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.961" level="INFO">${body} = {   "name": "test nama",   "gender": "Male",   "email": "kaihavertz@shopoyi.id",   "status": "Active" }</msg>
+<status status="PASS" endtime="20210201 04:25:11.962" starttime="20210201 04:25:11.961"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; request body: ${body}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:11.968" starttime="20210201 04:25:11.962"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.970" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'}</msg>
+<status status="PASS" endtime="20210201 04:25:11.970" starttime="20210201 04:25:11.969"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>session</arg>
+<arg>${URL_GOREST}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:11.971" level="INFO">Creating Session using : alias=session, url=https://gorest.co.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:11.971" starttime="20210201 04:25:11.971"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/public-api/users</arg>
+<arg>data=${body}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20210201 04:25:11.972" level="INFO">POST Request using : uri=/public-api/users, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'} 
+data={   "name": "test nama",   "gender": "Male",   "email": "kaihavertz@shopoyi.id",   "status": "Active" } 
+json=None</msg>
+<msg timestamp="20210201 04:25:12.189" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:12.205" level="INFO">${result} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:12.205" starttime="20210201 04:25:11.972"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.209" starttime="20210201 04:25:12.207"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.244" starttime="20210201 04:25:12.211"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.256" starttime="20210201 04:25:12.245"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result.content}</arg>
+</arguments>
+<assign>
+<var>${responseJson}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.257" level="INFO">${responseJson} = {"code":422,"meta":null,"data":[{"field":"email","message":"has already been taken"}]}</msg>
+<status status="PASS" endtime="20210201 04:25:12.257" starttime="20210201 04:25:12.256"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/code</arg>
+</arguments>
+<assign>
+<var>${responsecode}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.258" level="INFO">${responsecode} = 422</msg>
+<status status="PASS" endtime="20210201 04:25:12.258" starttime="20210201 04:25:12.258"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${responsecode}</arg>
+<arg>422</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.260" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:12.260" starttime="20210201 04:25:12.259"></status>
+</kw>
+<tags>
+<tag>7</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:12.260" critical="yes" starttime="20210201 04:25:11.955"></status>
+</test>
+<test id="s1-t8" name="Create User failed - error when entering a value status: Disable">
+<kw name="generate email">
+<assign>
+<var>${email}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; generating random email</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.274" level="INFO">&gt;&gt;&gt; generating random email</msg>
+<status status="PASS" endtime="20210201 04:25:12.275" starttime="20210201 04:25:12.274"></status>
+</kw>
+<kw name="First Name" library="FakerLibrary">
+<assign>
+<var>${fake_name}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.275" level="INFO">${fake_name} = Steven</msg>
+<status status="PASS" endtime="20210201 04:25:12.275" starttime="20210201 04:25:12.275"></status>
+</kw>
+<kw name="Convert To Lowercase" library="String">
+<doc>Converts string to lowercase.</doc>
+<arguments>
+<arg>${fake_name}</arg>
+</arguments>
+<assign>
+<var>${fake_name_lower}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.276" level="INFO">${fake_name_lower} = steven</msg>
+<status status="PASS" endtime="20210201 04:25:12.276" starttime="20210201 04:25:12.275"></status>
+</kw>
+<kw name="Numerify" library="FakerLibrary">
+<doc>Replaces all placeholders in given text with randomized values,
+replacing: all hash sign ('#') occurrences with a random digit
+(from 0 to 9); all percentage sign ('%') occurrences with a
+random non-zero digit (from 1 to 9); all exclamation mark ('!')
+occurrences with a random digit (from 0 to 9) or an empty string;
+and all at symbol ('@') occurrences with a random non-zero digit
+(from 1 to 9) or an empty string.</doc>
+<arguments>
+<arg>text=###</arg>
+</arguments>
+<assign>
+<var>${randomNumber}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.276" level="INFO">${randomNumber} = 481</msg>
+<status status="PASS" endtime="20210201 04:25:12.276" starttime="20210201 04:25:12.276"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>apitest+</arg>
+</arguments>
+<assign>
+<var>${email_prefix}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.276" level="INFO">${email_prefix} = apitest+</msg>
+<status status="PASS" endtime="20210201 04:25:12.276" starttime="20210201 04:25:12.276"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@forest.id</arg>
+</arguments>
+<assign>
+<var>${email_suffix}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.277" level="INFO">${email_suffix} = @forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:12.277" starttime="20210201 04:25:12.276"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${email_prefix}${fake_name_lower}${randomNumber}${email_suffix}</arg>
+</arguments>
+<assign>
+<var>${email}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.277" level="INFO">${email} = apitest+steven481@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:12.277" starttime="20210201 04:25:12.277"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.277" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20210201 04:25:12.277" starttime="20210201 04:25:12.277"></status>
+</kw>
+<msg timestamp="20210201 04:25:12.278" level="INFO">${email} = apitest+steven481@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:12.278" starttime="20210201 04:25:12.274"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; email random: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.285" starttime="20210201 04:25:12.278"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; Hit create users gorest with email: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.288" starttime="20210201 04:25:12.286"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{ \ \ "name": "Bianca Haliza", \ \ "gender": "Male", \ \ "email": "${email}", \ \ "status": "Disable" }</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.289" level="INFO">${body} = {   "name": "Bianca Haliza",   "gender": "Male",   "email": "apitest+steven481@forest.id",   "status": "Disable" }</msg>
+<status status="PASS" endtime="20210201 04:25:12.289" starttime="20210201 04:25:12.289"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.290" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'}</msg>
+<status status="PASS" endtime="20210201 04:25:12.290" starttime="20210201 04:25:12.290"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>session</arg>
+<arg>${URL_GOREST}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.291" level="INFO">Creating Session using : alias=session, url=https://gorest.co.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:12.291" starttime="20210201 04:25:12.291"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/public-api/users</arg>
+<arg>data=${body}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.292" level="INFO">POST Request using : uri=/public-api/users, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'} 
+data={   "name": "Bianca Haliza",   "gender": "Male",   "email": "apitest+steven481@forest.id",   "status": "Disable" } 
+json=None</msg>
+<msg timestamp="20210201 04:25:12.597" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:12.608" level="INFO">${result} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:12.608" starttime="20210201 04:25:12.292"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.617" starttime="20210201 04:25:12.610"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.623" starttime="20210201 04:25:12.618"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.626" starttime="20210201 04:25:12.625"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result.content}</arg>
+</arguments>
+<assign>
+<var>${responseJson}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.627" level="INFO">${responseJson} = {"code":422,"meta":null,"data":[{"field":"status","message":"can be Active or Inactive"}]}</msg>
+<status status="PASS" endtime="20210201 04:25:12.627" starttime="20210201 04:25:12.627"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/code</arg>
+</arguments>
+<assign>
+<var>${responsecode}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.628" level="INFO">${responsecode} = 422</msg>
+<status status="PASS" endtime="20210201 04:25:12.628" starttime="20210201 04:25:12.628"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${responsecode}</arg>
+<arg>422</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.630" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:12.630" starttime="20210201 04:25:12.629"></status>
+</kw>
+<tags>
+<tag>8</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:12.630" critical="yes" starttime="20210201 04:25:12.272"></status>
+</test>
+<test id="s1-t9" name="Create User failed - error when entering a value gender: MAN">
+<kw name="generate email">
+<assign>
+<var>${email}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; generating random email</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.637" level="INFO">&gt;&gt;&gt; generating random email</msg>
+<status status="PASS" endtime="20210201 04:25:12.637" starttime="20210201 04:25:12.637"></status>
+</kw>
+<kw name="First Name" library="FakerLibrary">
+<assign>
+<var>${fake_name}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.638" level="INFO">${fake_name} = Rachel</msg>
+<status status="PASS" endtime="20210201 04:25:12.638" starttime="20210201 04:25:12.637"></status>
+</kw>
+<kw name="Convert To Lowercase" library="String">
+<doc>Converts string to lowercase.</doc>
+<arguments>
+<arg>${fake_name}</arg>
+</arguments>
+<assign>
+<var>${fake_name_lower}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.639" level="INFO">${fake_name_lower} = rachel</msg>
+<status status="PASS" endtime="20210201 04:25:12.639" starttime="20210201 04:25:12.638"></status>
+</kw>
+<kw name="Numerify" library="FakerLibrary">
+<doc>Replaces all placeholders in given text with randomized values,
+replacing: all hash sign ('#') occurrences with a random digit
+(from 0 to 9); all percentage sign ('%') occurrences with a
+random non-zero digit (from 1 to 9); all exclamation mark ('!')
+occurrences with a random digit (from 0 to 9) or an empty string;
+and all at symbol ('@') occurrences with a random non-zero digit
+(from 1 to 9) or an empty string.</doc>
+<arguments>
+<arg>text=###</arg>
+</arguments>
+<assign>
+<var>${randomNumber}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.639" level="INFO">${randomNumber} = 095</msg>
+<status status="PASS" endtime="20210201 04:25:12.639" starttime="20210201 04:25:12.639"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>apitest+</arg>
+</arguments>
+<assign>
+<var>${email_prefix}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.639" level="INFO">${email_prefix} = apitest+</msg>
+<status status="PASS" endtime="20210201 04:25:12.639" starttime="20210201 04:25:12.639"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@forest.id</arg>
+</arguments>
+<assign>
+<var>${email_suffix}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.640" level="INFO">${email_suffix} = @forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:12.640" starttime="20210201 04:25:12.639"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${email_prefix}${fake_name_lower}${randomNumber}${email_suffix}</arg>
+</arguments>
+<assign>
+<var>${email}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.640" level="INFO">${email} = apitest+rachel095@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:12.640" starttime="20210201 04:25:12.640"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.640" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20210201 04:25:12.640" starttime="20210201 04:25:12.640"></status>
+</kw>
+<msg timestamp="20210201 04:25:12.640" level="INFO">${email} = apitest+rachel095@forest.id</msg>
+<status status="PASS" endtime="20210201 04:25:12.640" starttime="20210201 04:25:12.637"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; email random: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.642" starttime="20210201 04:25:12.642"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; Hit create users gorest with email: ${email}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.644" starttime="20210201 04:25:12.642"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{ \ \ "name": "Bianca Haliza", \ \ "gender": "MAN", \ \ "email": "${email}", \ \ "status": "Active" }</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.645" level="INFO">${body} = {   "name": "Bianca Haliza",   "gender": "MAN",   "email": "apitest+rachel095@forest.id",   "status": "Active" }</msg>
+<status status="PASS" endtime="20210201 04:25:12.645" starttime="20210201 04:25:12.645"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.647" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'}</msg>
+<status status="PASS" endtime="20210201 04:25:12.647" starttime="20210201 04:25:12.646"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>session</arg>
+<arg>${URL_GOREST}</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.648" level="INFO">Creating Session using : alias=session, url=https://gorest.co.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:12.648" starttime="20210201 04:25:12.647"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/public-api/users</arg>
+<arg>data=${body}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.649" level="INFO">POST Request using : uri=/public-api/users, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'} 
+data={   "name": "Bianca Haliza",   "gender": "MAN",   "email": "apitest+rachel095@forest.id",   "status": "Active" } 
+json=None</msg>
+<msg timestamp="20210201 04:25:12.910" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:12.932" level="INFO">${result} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:12.932" starttime="20210201 04:25:12.648"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.936" starttime="20210201 04:25:12.934"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.943" starttime="20210201 04:25:12.937"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt; response: ${result.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.962" starttime="20210201 04:25:12.945"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result.content}</arg>
+</arguments>
+<assign>
+<var>${responseJson}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.964" level="INFO">${responseJson} = {"code":422,"meta":null,"data":[{"field":"gender","message":"can be Male or Female"}]}</msg>
+<status status="PASS" endtime="20210201 04:25:12.964" starttime="20210201 04:25:12.963"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${responseJson}</arg>
+<arg>/code</arg>
+</arguments>
+<assign>
+<var>${responsecode}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.966" level="INFO">${responsecode} = 422</msg>
+<status status="PASS" endtime="20210201 04:25:12.966" starttime="20210201 04:25:12.965"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${responsecode}</arg>
+<arg>422</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.968" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:12.968" starttime="20210201 04:25:12.967"></status>
+</kw>
+<tags>
+<tag>9</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:12.969" critical="yes" starttime="20210201 04:25:12.636"></status>
+</test>
+<test id="s1-t10" name="Get user detail - Get ALL User">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;start to hit gorest all users</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:12.989" starttime="20210201 04:25:12.981"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>${URL_GOREST}/public-api/users</arg>
+</arguments>
+<msg timestamp="20210201 04:25:12.991" level="INFO">Creating Session using : alias=myssion, url=https://gorest.co.in//public-api/users, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20210201 04:25:12.992" starttime="20210201 04:25:12.990"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Authorization=Bearer ${ACCESS_TOKEN}</arg>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.994" level="INFO">${headers} = {u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd', u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20210201 04:25:12.994" starttime="20210201 04:25:12.993"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>/</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210201 04:25:12.995" level="INFO">GET Request using : uri=/, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer 5e8cea81419200ac9fd82f8bcd839bd19266d7ed8cb0a0e5a8780d17201d12dd'} 
+data=None 
+json=None</msg>
+<msg timestamp="20210201 04:25:13.249" level="INFO">c:\python27\lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20210201 04:25:13.267" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20210201 04:25:13.267" starttime="20210201 04:25:12.995"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;${response.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:13.272" starttime="20210201 04:25:13.268"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;${response.content}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:13.325" starttime="20210201 04:25:13.273"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;${response.headers}</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:13.356" starttime="20210201 04:25:13.326"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>&gt;&gt;&gt;Success get all users detail</arg>
+</arguments>
+<status status="PASS" endtime="20210201 04:25:13.359" starttime="20210201 04:25:13.357"></status>
+</kw>
+<tags>
+<tag>10</tag>
+</tags>
+<status status="PASS" endtime="20210201 04:25:13.359" critical="yes" starttime="20210201 04:25:12.976"></status>
+</test>
+<status status="PASS" endtime="20210201 04:25:13.375" starttime="20210201 04:25:08.049"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="10">Critical Tests</stat>
+<stat fail="0" pass="10">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="1">1</stat>
+<stat fail="0" pass="1">10</stat>
+<stat fail="0" pass="1">2</stat>
+<stat fail="0" pass="1">3</stat>
+<stat fail="0" pass="1">4</stat>
+<stat fail="0" pass="1">5</stat>
+<stat fail="0" pass="1">6</stat>
+<stat fail="0" pass="1">7</stat>
+<stat fail="0" pass="1">8</stat>
+<stat fail="0" pass="1">9</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Gorest api testing" pass="10">Gorest api testing</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
