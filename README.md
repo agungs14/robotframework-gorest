@@ -53,7 +53,7 @@ robotframework-gorest
 
         ##Checking pip packages installed
         -Open command prompt
-        -Type “pip freeze”. It should show list of packages that installed in your system. It should look like this
+        -Type “pip freeze”. It should show list of packages that installed in your system
 
         ##Installing RobotFramework supporting libraries
         ##Install these packages below to install supporting libraries :
